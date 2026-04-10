@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Singh - AI/ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* === COLOR VARIABLES === */
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #ff6b35;
+            --text: #ffffff;
+            --text-muted: #b0b0b0;
+            --border: #404040;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* === SCROLLBAR === */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff8555;
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* === HEADER/NAVIGATION === */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .cta-button {
+            padding: 0.7rem 1.4rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            background: #ff8555;
+            transform: translateY(-2px);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 6%;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 10;
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary:hover {
+            background: #ff8555;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* === SECTION STYLES === */
+        section {
+            padding: 5rem 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .info-value a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .info-value a:hover {
+            opacity: 0.8;
+        }
+
+        /* === SKILLS SECTION === */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .skill-category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* === PROJECTS SECTION === */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .project-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .project-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-highlights {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-highlights li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-highlights li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            opacity: 0.8;
+        }
+
+        /* === ACHIEVEMENTS SECTION === */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* === CONTACT SECTION === */
+        .contact-wrapper {
+            background: var(--secondary);
+            padding: 3rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .contact-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--secondary);
+            padding: 2rem 6%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-header {
+                flex-direction: column;
+            }
+
+            .project-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons button,
+            .contact-buttons a {
+                width: 100%;
+            }
+        }
+
+        /* === UTILITY === */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 4rem 0;
+        }
+
+        .fade-in {
+            animation: fadeUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- === HEADER === -->
+    <header>
+        <nav>
+            <div class="logo">Ayush <span>Singh</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button" onclick="scrollTo('#contact')">Let's Talk</button>
+        </nav>
+    </header>
+
+    <!-- === HERO SECTION === -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">AI/ML Engineer <span>Building Cloud Solutions</span></h1>
+            <p class="hero-subtitle">RAG Pipelines • LLM Applications • AI Agents</p>
+            <p class="hero-description">
+                I specialize in building production-grade AI systems with RAG pipelines, LangChain workflows, 
+                and AI agents. Currently at Capgemini with a strong foundation in problem-solving across 1000+ DSA problems.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollTo('#contact')">Get In Touch</button>
+                <button class="btn-secondary" onclick="scrollTo('#projects')">View Projects</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">DSA Problems</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Hackathon Win</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Top 0.5%</div>
+                    <div class="stat-label">University Rank</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Production</div>
+                    <div class="stat-label">Ready Systems</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- === ABOUT SECTION === -->
+    <section id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+            <div>
+                <h3>Who I Am</h3>
+                <p>
+                    I'm an AI/ML Engineer passionate about building intelligent cloud solutions. 
+                    My expertise centers on RAG pipelines, LLM applications, and AI agents that solve real-world problems.
+                </p>
+                <p>
+                    Currently in my pre-joining training at Capgemini after campus recruitment. 
+                    I combine strong DSA fundamentals with cutting-edge AI/ML knowledge to create scalable, 
+                    production-grade systems.
+                </p>
+                <p>
+                    When I'm not coding, I'm solving complex problems or exploring the latest advancements in 
+                    generative AI and cloud infrastructure.
+                </p>
+            </div>
+            <div class="contact-info">
+                <div class="info-item">
+                    <span class="info-label">Email</span>
+                    <span class="info-value"><a href="mailto:ayushrajput8252@gmail.com">ayushrajput8252@gmail.com</a></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Phone</span>
+                    <span class="info-value"><a href="tel:+917209602122">+91 7209 602 122</a></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">LinkedIn</span>
+                    <span class="info-value"><a href="https://linkedin.com/in/ayush-singh" target="_blank">linkedin.com/in/ayush-singh</a></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Education</span>
+                    <span class="info-value">Parul University (2022-2026)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Current Role</span>
+                    <span class="info-value">Capgemini Pre-Joining Training</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- === SKILLS SECTION === -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <div class="skill-category-title">AI Agents & Generative AI</div>
+                <div class="skill-list">
+                    <div class="skill-item">RAG Pipelines & Vector Databases</div>
+                    <div class="skill-item">LangChain & LangGraph Workflows</div>
+                    <div class="skill-item">LLM Applications & Prompt Engineering</div>
+                    <div class="skill-item">AI Agents & Multi-Agent Systems</div>
+                    <div class="skill-item">Embeddings & Semantic Search</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Machine Learning</div>
+                <div class="skill-list">
+                    <div class="skill-item">Supervised Learning & Classification</div>
+                    <div class="skill-item">Transfer Learning & Fine-tuning</div>
+                    <div class="skill-item">Feature Engineering & Model Evaluation</div>
+                    <div class="skill-item">CNN & Deep Learning (PyTorch)</div>
+                    <div class="skill-item">OCR & Computer Vision</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Cloud & DevOps</div>
+                <div class="skill-list">
+                    <div class="skill-item">AWS Services & Cloud Architecture</div>
+                    <div class="skill-item">Docker & Containerization</div>
+                    <div class="skill-item">Kubernetes & Orchestration</div>
+                    <div class="skill-item">CI/CD Pipelines & Deployment</div>
+                    <div class="skill-item">Microservices Architecture</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Backend & Tools</div>
+                <div class="skill-list">
+                    <div class="skill-item">FastAPI & REST APIs</div>
+                    <div class="skill-item">Python, Java, C++</div>
+                    <div class="skill-item">PostgreSQL & Vector Databases</div>
+                    <div class="skill-item">Streamlit & Web Frameworks</div>
+                    <div class="skill-item">Git & Version Control</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Problem Solving</div>
+                <div class="skill-list">
+                    <div class="skill-item">Algorithms & Data Structures</div>
+                    <div class="skill-item">System Design & Architecture</div>
+                    <div class="skill-item">Competitive Programming</div>
+                    <div class="skill-item">Code Optimization & Debugging</div>
+                    <div class="skill-item">Hackathon Problem Solving</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- === PROJECTS SECTION === -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3 class="project-title">Local Vendor Automation</h3>
+                        <div class="project-role">Hackathon Top 10/1000 • AI/ML Developer</div>
+                    </div>
+                    <span class="project-badge">Prize: ₹5000</span>
+                </div>
+                
+                <p class="project-description">
+                    AI-powered onboarding automation system with OCR-based verification, fraud detection, and intelligent FAQ responses through RAG chatbot integration.
+                </p>
+
+                <ul class="project-highlights">
+                    <li>Built OCR-based PAN verification with fraud detection checks</li>
+                    <li>Developed transfer learning image classifier for product categorization</li>
+                    <li>Integrated RAG chatbot with safety filtering for grounded responses</li>
+                    <li>Connected OCR + classifier + chatbot via FastAPI backend workflow</li>
+                </ul>
+
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Gemini API</span>
+                        <span class="tech-tag">EasyOCR</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">Transfer Learning</span>
+                    </div>
+                    <a href="https://github.com" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h3 class="project-title">AI Resume & Job Automation</h3>
+                        <div class="project-role">Multi-Agent System • LangGraph Workflow</div>
+                    </div>
+                    <span class="project-badge">In Progress</span>
+                </div>
+
+                <p class="project-description">
+                    Stateful multi-agent system using LangGraph for intelligent resume-to-role alignment with conditional routing, hybrid scoring, and recruitment automation.
+                </p>
+
+                <ul class="project-highlights">
+                    <li>Built stateful LangGraph workflow with conditional routing</li>
+                    <li>Optimized LLM costs by 55-65% through smart token evaluation</li>
+                    <li>Implemented hybrid scoring combining LLM reasoning + deterministic validation</li>
+                    <li>Automated course suggestions, interview questions, recruiter emails & application tracking</li>
+                </ul>
+
+                <div class="project-footer">
+                    <div class="tech-stack">
+                        <span class="tech-tag">LangGraph</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Gemini</span>
+                        <span class="tech-tag">Tavily API</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">FastAPI</span>
+                    </div>
+                    <a href="https://github.com" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- === ACHIEVEMENTS SECTION === -->
+    <section id="achievements">
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">🏆</div>
+                <h3 class="achievement-title">PU Code Hackathon 3.0</h3>
+                <p class="achievement-text">Top 10 out of 1000 teams with AI vendor automation project, awarded ₹5000 prize</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">📊</div>
+                <h3 class="achievement-title">Competitive Programming</h3>
+                <p class="achievement-text">GeeksforGeeks 3-Star • CodeChef 2-Star • Solved 1000+ DSA problems across platforms</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">🎯</div>
+                <h3 class="achievement-title">Top University Ranker</h3>
+                <p class="achievement-text">Top 0.5% in university rankings on GeeksforGeeks and Codilio</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">💼</div>
+                <h3 class="achievement-title">Capgemini Campus Recruitment</h3>
+                <p class="achievement-text">Selected through campus recruitment with Offer of Intent (LOI) • Pre-joining training in progress</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">👥</div>
+                <h3 class="achievement-title">GDSC Core Member</h3>
+                <p class="achievement-text">Google Developer Student Clubs - Competitive Programming Team Lead</p>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">🚀</div>
+                <h3 class="achievement-title">Production Systems</h3>
+                <p class="achievement-text">Built production-style RAG systems, AI agents, and cloud-native applications</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- === CONTACT SECTION === -->
+    <section id="contact">
+        <div class="contact-wrapper">
+            <h2 class="contact-title">Let's Work Together</h2>
+            <p class="contact-description">
+                I'm always interested in hearing about new projects and opportunities. 
+                Whether you're looking for an AI engineer, collaborator, or mentor, feel free to reach out!
+            </p>
+            <div class="contact-buttons">
+                <a href="mailto:ayushrajput8252@gmail.com" class="btn-primary">Send Email</a>
+                <a href="https://linkedin.com/in/ayush-singh" target="_blank" class="btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer>
+        <p>© 2026 Ayush Singh. Crafted with precision and powered by AI/ML.</p>
+    </footer>
+
+    <script>
+        function scrollTo(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    scrollTo(href);
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .skill-category, .achievement-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(26, 26, 26, 0.98)';
+            } else {
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
